@@ -17,9 +17,7 @@
 ## 3. Présentation du projet
 &nbsp; Ayant eu l'idée de réaliser le jeu "Loup Garou" en Java, j'ai créé le projet KOPIA dans le cadre de la formation Développeur Java pendant une semaine.<br>
 
-> <span style="font-size:13px">*Les Loups-Garous de Thiercelieux est un jeu de société d'ambiance dans lequel chaque joueur incarne un villageois ou un loup-garou, et dont le but général est : <br>
-  1. pour les villageois (dont certains ont des pouvoirs ou des particularités) : démasquer et tuer tous les loups-garous<br>
-  2. pour les loups-garous : d'éliminer tous les villageois et ne pas se faire démasquer*<br></span>
+> <span style="font-size:13px">*Les Loups-Garous de Thiercelieux est un jeu de société d'ambiance dans lequel chaque joueur incarne un villageois ou un loup-garou, et dont le but général est, pour les villageois (dont certains ont des pouvoirs ou des particularités) : démasquer et tuer tous les loups-garous, pour les loups-garous : d'éliminer tous les villageois et ne pas se faire démasquer*<br></span>
 
 &nbsp; L'application se compose de quatre grandes parties, **Serveur**, **Login**, **ClientModule**, **MainGameUI**.
 
@@ -29,49 +27,119 @@ Java
 # Results
 ## 1. Codes
 ### *Server*
-  
-![MafiaServer](md_imgs/server.gif)
-<br>
 **Création du Serveur**, dans la limite de 6 personnes (nombres de jouers maximum)<br>
 **Connexion et Déconnexion**, gérer la connexion du serveur<br>
 **Contrôle du temps du jeu**, alterner la journée et la nuit, le temps de vote, etc.<br>
 
 
-### 1.2.1. 장점
-	1. 간결하다.
-	2. 별도의 도구없이 작성가능하다.
-	3. 다양한 형태로 변환이 가능하다.
-	3. 텍스트(Text)로 저장되기 때문에 용량이 적어 보관이 용이하다.
-	4. 텍스트파일이기 때문에 버전관리시스템을 이용하여 변경이력을 관리할 수 있다.
-	5. 지원하는 프로그램과 플랫폼이 다양하다.
-### 1.2.2. 단점
-	1. 표준이 없다.
-	2. 표준이 없기 때문에 도구에 따라서 변환방식이나 생성물이 다르다.
-	3. 모든 HTML 마크업을 대신하지 못한다.
+### Création Serveur
+			try{
+				ss = new ServerSocket(port);
+				serverStatusLabel.setText("          Server is startig...         ");
+				textArea.append(" Server is turned on. " +"\n");
+				serverStartButton.setEnabled(false);
+				serverCloseButton.setEnabled(true);
+				while(true){
+					s = ss.accept();
+					ocm = new OneClientModule(this);
+					clientList.add(ocm);
+					if((clientList.size()  ) > MAX_CLIENT) s.close();
+					else{
+						ocm.start();
+					}
+				}
+			}catch(IOException ie){}
+			}
+	
 
 ---
 
 ### *Login*
-![Login](md_imgs/login.gif)
-<br>
 **Se connecter au jeu**, grâce à l'interface simple, il sutffit de mettre un surnom afin de rentrer au jeu.
 **Appel à MainGameUI**, qui amène à l'UI du jeu. Une fois connexion réalisée, l'interface change automatiquement.
+
+### Connexion
+				nickName = idText.getText().trim();
+				String ipTemp = ipText.getText();
+				if(ipTemp.matches("(^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$)")){
+					ip =ipTemp;
+					playSound("LoginButtonSound.wav");
+					JOptionPane.showMessageDialog(null, "Success to log-in!", "LOGIN", JOptionPane.INFORMATION_MESSAGE, iconImg2);
+					loginB.setEnabled(false);
+					idText.setEnabled(false);
+					ipText.setEnabled(false);
+					setVisible(false);
+					MainGameUI mgUI = new MainGameUI();
+				}
 
 ---
 
 ### *MainGameUI*
-![Login](md_imgs/mainGame.gif)
-<br>
 **Mettre à jour de la liste des jouers** automatiquement, lorsqu'il y a un changement au niveau de participant.
 **Chatting**, recevoir et envoyer un message est possible.
 **Suivi du jeu**, selon le jouer est montré sur l'interface de chacun.
 
+### Chatting
+	public void keyReleased(KeyEvent e){ 
+			if(e.getKeyCode()==KeyEvent.VK_ENTER){
+				String msgChatEnter = textField.getText();
+				textField.setText("");
+				try{
+					//write msgChat on the server
+					dos.writeUTF("//Chat "+nickName+">> " +msgChatEnter);
+					dos.flush();
+				}catch(IOException ie){}
+			}
+		}
 ---
 
 ### *OneClientModule*
-![client](md_imgs/mainGame.gif)
-<br>
 **Distribution des métiers en Random**
 **Gestion de jeu**, communquant via sockets avec **Protocole**.
 
+### Random Job
+	String Jobs[] = {"Mafia", "Police", "Citizen1", "Citizen2", "Citizen3", "Citizen4"};
+		Random r = new Random();
+		String job;
+		int a[]= new int[6];
+		for(int i=0;i<6;i++ ){
+			a[i]= r.nextInt(6);
+			for(int j=0; j<i; j++){
+				if(a[i]==a[j]){
+					i--;
+				}
+			}
+		}
+		try{
+			int k =0;
+			for(OneClientModule ocm : ms.clientList){
+					Jobgiven = ("//Job"+ Jobs[a[k]]);
+					ms.listAlive.add(Jobgiven.substring(5));
+					ocm.dos.writeUTF(Jobgiven);
+					ocm.dos.flush();
+					k++;
+				}	
+		}catch(IOException ie){}
+		for(String ad : ms.listAlive){
+			System.out.println(ad);
+		}
+
 ---
+## 2. Views
+### *Server*
+![Server](md_imgs/server.jpg)
+<br>
+
+### *Login*
+![Login](md_imgs/login.gif)
+<br>
+
+### *Jeu*
+![Citizen](md_imgs/citizen.gif)
+<br>
+
+![Police](md_imgs/police.gif)
+<br>
+
+![Mafia](md_imgs/mafia.gif)
+<br>
