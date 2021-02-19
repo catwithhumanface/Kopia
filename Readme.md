@@ -1,6 +1,6 @@
 
 # ABOUT PROJECT
-#### [ KOPIA ] Création d'une application de Jeu "Loup Garou" en Java : Programmation de Socket en java, Création de Chat, UI & UX Design, Gestion de projet<br><span style="font-size:15px">*( 2020.05.26 ~ 2020.06.01 )*</span>
+#### [ KOPIA ] Création d'une application de Jeu "Loup Garou" en Java durant une semaine : Programmation de Socket en java, Création de Chat, UI & UX Design, Gestion de projet<br><span style="font-size:15px">*( 2020.05.26 ~ 2020.06.01 )*</span>
 
 ## 1. Membres de l'équipe
 
