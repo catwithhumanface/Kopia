@@ -27,11 +27,6 @@ Java
 # Results
 ## Codes & Views
 ### *Server*
-![Serveur](Images/serveron.gif)
-<br>
-![Nightcame](Images/nightcame.gif)
-<br>
-
 **Création du Serveur**, dans la limite de 6 personnes (nombres de jouers maximum)<br>
 **Connexion et Déconnexion**, gérer la connexion du serveur<br>
 **Contrôle du temps du jeu**, alterner la journée et la nuit, le temps de vote, etc.<br>
@@ -56,12 +51,13 @@ Java
 			}catch(IOException ie){}
 			}
 	
-
 ---
+![Serveur](Images/serveron.gif)
+<br>
+![Nightcame](Images/nightcame.gif)
+<br>
 
 ### *Login*
-![Login](Images/login.gif)
-<br>
 **Se connecter au jeu**, grâce à l'interface simple, il sutffit de mettre un surnom afin de rentrer au jeu.
 **Appel à MainGameUI**, qui amène à l'UI du jeu. Une fois connexion réalisée, l'interface change automatiquement.
 
@@ -80,12 +76,11 @@ Java
 				}
 
 ---
+![Login](Images/login.gif)
+<br>
 
 ### *MainGameUI*
-![Startgame](Images/startgame.gif)
-<br>
-![Mafiawon](Images/mafiawon.gif)
-<br>
+
 **Mettre à jour de la liste des jouers** automatiquement, lorsqu'il y a un changement au niveau de participant.
 **Chatting**, recevoir et envoyer un message est possible.
 **Suivi du jeu**, selon le jouer est montré sur l'interface de chacun.
@@ -103,15 +98,16 @@ Java
 			}
 		}
 ---
+![Startgame](Images/startgame.gif)
+<br>
+**Lors que tous les utilisateurs sont "ready", le jeu sera exécuté dans 5 seconds.
+![Mafiawon](Images/mafiawon.gif)
+<br>
+**Si le Mafia réussit à tuer tous les citoyens, il sera le gagnant.
 
 ### *OneClientModule*
-![Vote](Images/vote.gif)
-<br>
-![Policepower](Images/policepower.gif)
-<br>
 **Distribution des métiers en Random**
 **Gestion de jeu**, communquant via sockets avec **Protocole**.
-
 ### Random Job
 	String Jobs[] = {"Mafia", "Police", "Citizen1", "Citizen2", "Citizen3", "Citizen4"};
 		Random r = new Random();
@@ -140,4 +136,10 @@ Java
 		}
 
 ---
-
+![Vote](Images/vote.gif)
+<br>
+**Avant que la nuit tombe, tous les utilisateurs sont invités à voter en appuiyant le bouton "Vote".
+**En cas de non recueil de vote (aucun), ou des votes nulles seront pas prise en compte.
+![Policepower](Images/policepower.gif)
+<br>
+**L'utilisateur Police (qui a eu Police comme Job) a le pouvoir de savoir le Job d'un utilisateur pendant la nuit. (L'affichage uniquement pour lui même)
