@@ -51,12 +51,12 @@ Java
 			}catch(IOException ie){}
 			}
 	
----
+
 ![Serveur](Images/serveron.gif)
 <br>
 ![Nightcame](Images/nightcame.gif)
 <br>
-
+---
 ### *Login*
 **Se connecter au jeu**, grâce à l'interface simple, il sutffit de mettre un surnom afin de rentrer au jeu.
 **Appel à MainGameUI**, qui amène à l'UI du jeu. Une fois connexion réalisée, l'interface change automatiquement.
@@ -75,10 +75,10 @@ Java
 					MainGameUI mgUI = new MainGameUI();
 				}
 
----
+
 ![Login](Images/login.gif)
 <br>
-
+---
 ### *MainGameUI*
 
 **Mettre à jour de la liste des jouers** automatiquement, lorsqu'il y a un changement au niveau de participant.
@@ -97,14 +97,14 @@ Java
 				}catch(IOException ie){}
 			}
 		}
----
+
 ![Startgame](Images/startgame.gif)
 <br>
-**Lors que tous les utilisateurs sont "ready", le jeu sera exécuté dans 5 seconds.
+**Lors que tous les utilisateurs sont "ready", le jeu sera exécuté dans 5 seconds.<br>
 ![Mafiawon](Images/mafiawon.gif)
 <br>
-**Si le Mafia réussit à tuer tous les citoyens, il sera le gagnant.
-
+**Si le Mafia réussit à tuer tous les citoyens, il sera le gagnant.<br>
+---
 ### *OneClientModule*
 **Distribution des métiers en Random**
 **Gestion de jeu**, communquant via sockets avec **Protocole**.
@@ -135,11 +135,12 @@ Java
 			System.out.println(ad);
 		}
 
----
+
 ![Vote](Images/vote.gif)
 <br>
-**Avant que la nuit tombe, tous les utilisateurs sont invités à voter en appuiyant le bouton "Vote".
-**En cas de non recueil de vote (aucun), ou des votes nulles seront pas prise en compte.
+---
+**Avant que la nuit tombe, tous les utilisateurs sont invités à voter en appuiyant le bouton "Vote".<br>
+**En cas de non recueil de vote (aucun), ou des votes nulles seront pas prise en compte.<br>
 ![Policepower](Images/policepower.gif)
 <br>
-**L'utilisateur Police (qui a eu Police comme Job) a le pouvoir de savoir le Job d'un utilisateur pendant la nuit. (L'affichage uniquement pour lui même)
+**L'utilisateur Police (qui a eu Police comme Job) a le pouvoir de savoir le Job d'un utilisateur pendant la nuit. (L'affichage uniquement pour lui même)<br>
