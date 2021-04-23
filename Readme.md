@@ -102,10 +102,11 @@ Java
 
 ![Startgame](Images/startgame.gif)
 <br>
-**Lors que tous les utilisateurs sont ready, le jeu sera exécuté dans 5 seconds.**<br>
+Lors que tous les utilisateurs sont ready, le jeu sera exécuté dans 5 seconds.<br>
 ![Mafiawon](Images/mafiawon.gif)
 <br>
-**Si le Mafia réussit à tuer tous les citoyens, il sera le gagnant.**<br>
+Si le Mafia réussit à tuer tous les citoyens, il sera le gagnant.<br>
+
 ---
 ### *OneClientModule*
 **Distribution des métiers en Random**
@@ -140,7 +141,6 @@ Java
 
 ![Vote](Images/vote.gif)
 <br>
----
 **Avant que la nuit tombe, tous les utilisateurs sont invités à voter en appuiyant le bouton "Vote".**<br>
 **En cas de non recueil de vote (aucun), ou des votes nulles seront pas prise en compte.**<br>
 ![Policepower](Images/policepower.gif)
