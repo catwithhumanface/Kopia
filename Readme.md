@@ -102,10 +102,10 @@ Java
 
 ![Startgame](Images/startgame.gif)
 <br>
-Lors que tous les utilisateurs sont ready, le jeu sera exécuté dans 5 seconds.<br>
+**Lors que tous les utilisateurs sont ready, le jeu sera exécuté dans 5 seconds.**<br>
 ![Mafiawon](Images/mafiawon.gif)
 <br>
-Si le Mafia réussit à tuer tous les citoyens, il sera le gagnant.<br>
+**Si le Mafia réussit à tuer tous les citoyens, il sera le gagnant.**<br>
 
 ---
 ### *OneClientModule*
