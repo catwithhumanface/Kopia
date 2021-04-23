@@ -25,8 +25,13 @@
 Java
 
 # Results
-## 1. Codes
+## Codes & Views
 ### *Server*
+![Serveur](Images/serveron.gif)
+<br>
+![Nightcame](Images/nightcame.gif)
+<br>
+
 **Création du Serveur**, dans la limite de 6 personnes (nombres de jouers maximum)<br>
 **Connexion et Déconnexion**, gérer la connexion du serveur<br>
 **Contrôle du temps du jeu**, alterner la journée et la nuit, le temps de vote, etc.<br>
@@ -55,6 +60,8 @@ Java
 ---
 
 ### *Login*
+![Login](Images/login.gif)
+<br>
 **Se connecter au jeu**, grâce à l'interface simple, il sutffit de mettre un surnom afin de rentrer au jeu.
 **Appel à MainGameUI**, qui amène à l'UI du jeu. Une fois connexion réalisée, l'interface change automatiquement.
 
@@ -75,6 +82,10 @@ Java
 ---
 
 ### *MainGameUI*
+![Startgame](Images/startgame.gif)
+<br>
+![Mafiawon](Images/mafiawon.gif)
+<br>
 **Mettre à jour de la liste des jouers** automatiquement, lorsqu'il y a un changement au niveau de participant.
 **Chatting**, recevoir et envoyer un message est possible.
 **Suivi du jeu**, selon le jouer est montré sur l'interface de chacun.
@@ -94,6 +105,10 @@ Java
 ---
 
 ### *OneClientModule*
+![Vote](Images/vote.gif)
+<br>
+![Policepower](Images/policepower.gif)
+<br>
 **Distribution des métiers en Random**
 **Gestion de jeu**, communquant via sockets avec **Protocole**.
 
@@ -125,21 +140,4 @@ Java
 		}
 
 ---
-## 2. Views
-### *Server*
-![Server](md_imgs/server.jpg)
-<br>
 
-### *Login*
-![Login](md_imgs/login.gif)
-<br>
-
-### *Jeu*
-![Citizen](md_imgs/citizen.gif)
-<br>
-
-![Police](md_imgs/police.gif)
-<br>
-
-![Mafia](md_imgs/mafia.gif)
-<br>
